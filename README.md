@@ -1,4 +1,4 @@
-```markdown
+
 # Contact Management Application
 
 ## Overview
@@ -103,4 +103,3 @@ module.exports = mongoose.model('Contact', contactSchema);
    - **Solution**: We used the `onContactsUpdate` function passed to `ContactModal` to refresh the contact list from the API after any changes. This ensures the frontend stays synchronized with the backend.
 
 ---
-```
