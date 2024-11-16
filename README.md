@@ -50,28 +50,17 @@ module.exports = mongoose.model('Contact', contactSchema);
 
 2. **Run the server**:
    ```bash
-   node server.js
+   node index.js
    ```
 
 ### 2. Frontend Setup
 
-1. Clone the repository:
-   ```bash
-   git clone <repository_url>
-   cd contact-management
-   ```
-
-2. Install the required dependencies:
+1. Install the required dependencies:
    ```bash
    npm install
    ```
 
-3. Configure the API URL in `api.jsx`:
-   ```js
-   const BASE_URL = "http://localhost:8080/api/contacts"; // Ensure this points to your backend API
-   ```
-
-4. Run the frontend application:
+2. Run the frontend application:
    ```bash
    npm start
    ```
@@ -94,9 +83,6 @@ module.exports = mongoose.model('Contact', contactSchema);
 - **AddContactButton**:
   - A button that opens the modal for adding new contacts.
 
-- **API Service**:
-  - Handles all API requests (create, fetch, update, and delete contacts) via Axios in `api.jsx`.
-
 - **App**:
   - The main component that integrates the UI components and handles state management for contacts.
 
@@ -106,28 +92,15 @@ module.exports = mongoose.model('Contact', contactSchema);
 
 ### 1. **Managing State Across Multiple Components**
    - **Challenge**: Initially, managing state (contact data) across different components (ContactTable, ContactModal) was difficult. Modifying state in one component would not automatically reflect in other components.
-   - **Solution**: We used React's `useState` and `useEffect` hooks to handle state and trigger UI updates when the contact list changes. By lifting state up to the parent component (`App.js`), we were able to manage the state centrally and pass it down to child components.
+   - **Solution**: I used React's `useState` and `useEffect` hooks to handle state and trigger UI updates when the contact list changes. By lifting state up to the parent component (`App.js`), I were able to manage the state centrally and pass it down to child components.
 
 ### 2. **Handling API Errors**
    - **Challenge**: Handling errors while interacting with the backend (e.g., when creating or updating contacts) was tricky as it required proper error handling mechanisms.
-   - **Solution**: We implemented try-catch blocks around API calls in `ContactModal` to catch errors and display appropriate feedback to users if something went wrong during an API request.
+   - **Solution**: I implemented try-catch blocks around API calls in `ContactModal` to catch errors and display appropriate feedback to users if something went wrong during an API request.
 
 ### 3. **Refreshing the Contact List After Adding/Editing**
    - **Challenge**: After adding or editing a contact, the list was not automatically refreshed.
    - **Solution**: We used the `onContactsUpdate` function passed to `ContactModal` to refresh the contact list from the API after any changes. This ensures the frontend stays synchronized with the backend.
 
 ---
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-## Contact
-
-For any questions, feel free to reach out:
-
-- **Email**: your-email@example.com
-- **GitHub**: [Your GitHub Profile](https://github.com/your-profile)
 ```
